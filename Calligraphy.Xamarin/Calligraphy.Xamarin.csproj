@@ -14,6 +14,16 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Nathan Westfall</Authors>
+    <PackageLicenseUrl>https://github.com/nwestfall/Calligraphy.Xamarin/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>Nathan Westfall</Owners>
+    <PackageProjectUrl>https://github.com/nwestfall/Calligraphy.Xamarin</PackageProjectUrl>
+    <Summary>Custom fonts in Android an OK way.</Summary>
+    <PackageTags>xamarin, android, calligraphy, font, typeface, custom</PackageTags>
+    <Title>Calligraphy.Xamarin</Title>
+    <PackageId>$id$</PackageId>
+    <PackageVersion>$version$</PackageVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

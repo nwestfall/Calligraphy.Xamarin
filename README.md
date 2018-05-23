@@ -1,5 +1,11 @@
-Calligraphy
+[![CodeFactor](https://www.codefactor.io/repository/github/nwestfall/calligraphy.xamarin/badge)](https://www.codefactor.io/repository/github/nwestfall/calligraphy.xamarin)
+[![Build status](https://ci.appveyor.com/api/projects/status/pfle5xe7b8xd4oek?svg=true)](https://ci.appveyor.com/project/nwestfall/calligraphy-xamarin)
+[![NuGet version](https://badge.fury.io/nu/Calligraphy.Xamarin.svg)](https://badge.fury.io/nu/Calligraphy.Xamarin)
+
+Calligraphy.Xamarin
 ===========
+
+Port from [https://github.com/chrisjenx/Calligraph](https://github.com/chrisjenx/Calligraphy)
 
 Custom fonts in Android an OK way.
 
