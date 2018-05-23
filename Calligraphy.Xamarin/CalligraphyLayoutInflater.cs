@@ -35,7 +35,7 @@ namespace Calligraphy.Xamarin
 		{
 			this.attributeId = attributeId;
 			calligraphyFactory = new CalligraphyFactory(attributeId);
-			SetUpLayoutFactories(false);
+			SetUpLayoutFactories(cloned);
 		}
 
 		public override LayoutInflater CloneInContext(Context newContext) => new CalligraphyLayoutInflater(this, newContext, attributeId, true);
