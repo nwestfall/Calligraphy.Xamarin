@@ -12,7 +12,7 @@
     <copyright>Copyright 2018</copyright>
     <tags>Xamarin Android Calligraphy Font Typeface</tags>
     <dependencies>
-        <dependency id="Microsoft.CSharp" />
+        <dependency id="Microsoft.CSharp" version="4.4.1" />
     </dependencies>
   </metadata>
   <files>
