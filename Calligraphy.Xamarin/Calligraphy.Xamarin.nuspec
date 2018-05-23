@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Calligraphy.Xamarin</title>
+    <authors>Nathan Westfall</authors>
+    <owners>Nathan Westfall</owners>
+    <projectUrl>https://github.com/nwestfall/Calligraphy.Xamarin</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Custom fonts in Android an OK way.  Ported from https://github.com/chrisjenx/Calligraphy</description>
+    <copyright>Copyright 2018</copyright>
+    <tags>Xamarin Android Calligraphy Font Typeface</tags>
+  </metadata>
+</package>

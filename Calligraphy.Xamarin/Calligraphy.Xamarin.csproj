@@ -69,6 +69,7 @@
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="packages.config" />
+    <None Include="Calligraphy.Xamarin.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
