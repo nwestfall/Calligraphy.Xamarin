@@ -16,7 +16,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\*.dll" target="lib\MonoAndroid10" />
-    <file src="bin\Release\*.pdb" target="lib\MonoAndroid10" />
+    <file src="bin\Release\Calligraphy.Xamarin.dll" target="lib\MonoAndroid10\Calligraphy.Xamarin.dll" />
+    <file src="bin\Release\Calligraphy.Xamarin.pdb" target="lib\MonoAndroid10\Calligraphy.Xamarin.pdb" />
   </files>
 </package>
