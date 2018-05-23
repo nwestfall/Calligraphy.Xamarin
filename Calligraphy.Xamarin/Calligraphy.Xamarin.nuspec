@@ -11,5 +11,12 @@
     <description>Custom fonts in Android an OK way.  Ported from https://github.com/chrisjenx/Calligraphy</description>
     <copyright>Copyright 2018</copyright>
     <tags>Xamarin Android Calligraphy Font Typeface</tags>
+    <dependencies>
+        <dependency id="Microsoft.CSharp" />
+    </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\*.dll" target="lib\MonoAndroid10" />
+    <file src="bin\Release\*.pdb" target="lib\MonoAndroid10" />
+  </files>
 </package>
