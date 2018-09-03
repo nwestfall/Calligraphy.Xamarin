@@ -58,7 +58,7 @@ namespace Calligraphy.Xamarin
 			if (MatchesResourceIdName(view, ACTION_BAR_TITLE)) return true;
 			if (ParentIsToolbarV7(view))
 			{
-				dynamic parent = view.Parent;
+                var parent = (Android.Support.V7.Widget.Toolbar)view.Parent;
 				return view.Text.Equals(parent.Title, StringComparison.InvariantCultureIgnoreCase);
 			}
 			return false;
@@ -75,7 +75,7 @@ namespace Calligraphy.Xamarin
 			if (MatchesResourceIdName(view, ACTION_BAR_SUBTITLE)) return true;
 			if (ParentIsToolbarV7(view))
 			{
-				dynamic parent = view.Parent;
+                var parent = (Android.Support.V7.Widget.Toolbar)view.Parent;
 				return view.Text.Equals(parent.Subtitle, StringComparison.InvariantCultureIgnoreCase);
 			}
 			return false;
@@ -149,8 +149,8 @@ namespace Calligraphy.Xamarin
 
 			// AppCompat API21+ The ActionBar doesn't inflate default Title/SubTitle, we need to scan the
 			// Toolbar(Which underlies the ActionBar) for its children.
-			if (CalligraphyUtils.CanCheckForV7Toolbar() && view?.GetType()?.IsAssignableFrom(Java.Lang.Class.ForName("android.support.v7.widget.Toolbar").GetType()) == true)
-				ApplyFontToToolbar(view);
+            if (CalligraphyUtils.CanCheckForV7Toolbar() && view?.GetType()?.IsAssignableFrom(typeof(Android.Support.V7.Widget.Toolbar)) == true)
+                ApplyFontToToolbar((Android.Support.V7.Widget.Toolbar)view);
             
 			// Try to set typeface for custom views using interface method or via reflection if available
             if(view is IHasTypeface hasTypeface)
@@ -205,7 +205,7 @@ namespace Calligraphy.Xamarin
 		/// Will forcibly set text on the views then remove ones that didn't have copy.
         /// </summary>
         /// <param name="view">View.</param>
-        void ApplyFontToToolbar(dynamic view)
+        void ApplyFontToToolbar(Android.Support.V7.Widget.Toolbar view)
 		{
 			string previousTitle = view.Title;
 			string previousSubtitle = view.Subtitle;
