@@ -57,12 +57,12 @@ namespace Calligraphy.Xamarin
 			// If we are HC+ we get and set Factory2 otherwise we just wrap Factory1
             if(Build.VERSION.SdkInt >= BuildVersionCodes.Honeycomb)
 			{
-				if (Factory2 != null && !(Factory2 is ContextWrapper))
-					SetFactory2(Factory2); // Sets both Factory/Factory2
+                if (Factory2 != null && !(Factory2 is WrapperFactory2))
+                    SetFactory2(Factory2); // Sets both Factory/Factory2
 			}
-			// We can do this as setFactory2 is used for both methods.
-			if (Factory != null && !(Factory is ContextWrapper))
-				SetFactory(Factory);
+            // We can do this as setFactory2 is used for both methods.
+            if (Factory != null && !(Factory is WrapperFactory))
+                SetFactory(Factory);
 		}
 
         void SetFactory(IFactory factory)
@@ -145,18 +145,18 @@ namespace Calligraphy.Xamarin
 			{
 				try
 				{
-					//It's weird, but it has to be done this way
+                    //It's weird, but it has to be done this way
                     //If prefix goes in the prefix spot, it errors out...
-					view = CreateView($"{prefix}.{name}", null, attrs);
+                    view = CreateView($"{prefix}.{name}", null, attrs);
 				}
                 catch(Java.Lang.ClassNotFoundException)
 				{
 					// Ignore
 				}
 			}
-			// In this case we want to let the base class take a crack
-			// at it.
-			if (view == null) view = base.OnCreateView(name, attrs);
+            // In this case we want to let the base class take a crack
+            // at it.
+            if (view == null) view = base.OnCreateView(name, attrs);
 
 			return calligraphyFactory.OnViewCreated(view, view.Context, attrs);
 		}

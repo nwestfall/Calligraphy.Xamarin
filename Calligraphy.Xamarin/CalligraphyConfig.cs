@@ -38,14 +38,14 @@ namespace Calligraphy.Xamarin
         /// </summary>
         static void AddAppCompatViews()
 		{
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatTextView").GetType(), Android.Resource.Attribute.TextViewStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatButton").GetType(), Android.Resource.Attribute.ButtonStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatEditText").GetType(), Android.Resource.Attribute.EditTextStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatAutoCompleteTextView").GetType(), Android.Resource.Attribute.AutoCompleteTextViewStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatMultiAutoCompleteTextView").GetType(), Android.Resource.Attribute.AutoCompleteTextViewStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatCheckBox").GetType(), Android.Resource.Attribute.CheckboxStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatRadioButton").GetType(), Android.Resource.Attribute.RadioButtonStyle);
-			DEFAULT_STYLES.TryAdd(Class.ForName("android.support.v7.widget.AppCompatCheckedTextView").GetType(), Android.Resource.Attribute.CheckedTextViewStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatTextView), Android.Resource.Attribute.TextViewStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatButton), Android.Resource.Attribute.ButtonStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatEditText), Android.Resource.Attribute.EditTextStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatAutoCompleteTextView), Android.Resource.Attribute.AutoCompleteTextViewStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatMultiAutoCompleteTextView), Android.Resource.Attribute.AutoCompleteTextViewStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatCheckBox), Android.Resource.Attribute.CheckboxStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatRadioButton), Android.Resource.Attribute.RadioButtonStyle);
+            DEFAULT_STYLES.TryAdd(typeof(Android.Support.V7.Widget.AppCompatCheckedTextView), Android.Resource.Attribute.CheckedTextViewStyle);
 		}
 
 		static CalligraphyConfig instance;
