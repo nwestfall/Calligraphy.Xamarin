@@ -6,7 +6,6 @@ using Android.Content;
 using Android.OS;
 using Android.Util;
 using Android.Views;
-
 using Java.Lang.Reflect;
 
 namespace Calligraphy.Xamarin
@@ -186,25 +185,46 @@ namespace Calligraphy.Xamarin
 			if (!CalligraphyConfig.Get().CustomViewCreation) return view;
             if(view == null && name.IndexOf('.') > -1)
 			{
-				if (constructorArgs == null)
-					constructorArgs = ReflectionUtils.GetField(Java.Lang.Class.FromType(typeof(LayoutInflater)), "mConstructorArgs");
+				Java.Lang.Object[] constructorArgsArr = null;
+				Java.Lang.Object lastContext = null;
 
-				Java.Lang.Object[] constructorArgsArr = (Java.Lang.Object[])ReflectionUtils.GetValue(constructorArgs, this);
-				Java.Lang.Object lastContext = constructorArgsArr[0];
-				// The LayoutInflater actually finds out the correct context to use. We just need to set
-				// it on the mConstructor for the internal method.
-				// Set the constructor ars up for the createView, not sure why we can't pass these in.
-				constructorArgsArr[0] = viewContext;
-				ReflectionUtils.SetValue(constructorArgs, this, constructorArgsArr);
+				if (Build.VERSION.SdkInt <= BuildVersionCodes.P)
+				{
+					if (constructorArgs == null)
+					{
+                        Java.Lang.Class layoutInflaterClass = Java.Lang.Class.FromType(typeof(LayoutInflater));
+						constructorArgs = layoutInflaterClass.GetDeclaredField("mConstructorArgs");
+						constructorArgs.Accessible = true;
+					}
+
+					constructorArgsArr = (Java.Lang.Object[])constructorArgs.Get(this);
+					lastContext = constructorArgsArr[0];
+
+					// The LayoutInflater actually finds out the correct context to use. We just need to set
+					// it on the mConstructor for the internal method.
+					// Set the constructor args up for the createView, not sure why we can't pass these in.
+					constructorArgsArr[0] = viewContext;
+					constructorArgs.Set(this, constructorArgsArr);
+				}
 				try
 				{
+#if __ANDROID_29__
+                        if (Build.VERSION.SdkInt > BuildVersionCodes.P)
+                            view = CreateView(viewContext, name, null, attrs);
+                        else
+#endif
 					view = CreateView(name, null, attrs);
 				}
-				catch(Java.Lang.ClassNotFoundException) { }
-                finally
+				catch (Java.Lang.ClassNotFoundException)
 				{
-					constructorArgsArr[0] = lastContext;
-					ReflectionUtils.SetValue(constructorArgs, this, constructorArgsArr);
+				}
+				finally
+				{
+					if (Build.VERSION.SdkInt <= BuildVersionCodes.P)
+					{
+						constructorArgsArr[0] = lastContext;
+						constructorArgs.Set(this, constructorArgsArr);
+					}
 				}
 			}
 			return view;
