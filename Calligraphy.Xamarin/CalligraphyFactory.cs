@@ -149,8 +149,8 @@ namespace Calligraphy.Xamarin
 
 			// AppCompat API21+ The ActionBar doesn't inflate default Title/SubTitle, we need to scan the
 			// Toolbar(Which underlies the ActionBar) for its children.
-            if (CalligraphyUtils.CanCheckForV7Toolbar() && view?.GetType()?.IsAssignableFrom(typeof(Android.Support.V7.Widget.Toolbar)) == true)
-                ApplyFontToToolbar((Android.Support.V7.Widget.Toolbar)view);
+            if (CalligraphyUtils.CanCheckForV7Toolbar() && view is Android.Support.V7.Widget.Toolbar toolbar)
+                ApplyFontToToolbar(toolbar);
             
 			// Try to set typeface for custom views using interface method or via reflection if available
             if(view is IHasTypeface hasTypeface)
